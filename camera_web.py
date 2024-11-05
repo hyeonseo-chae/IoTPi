@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Arduino와의 직렬 통신 설정
-ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 time.sleep(2)  # Arduino 초기화 시간을 위해 지연
 
 # HTML 코드 정의
