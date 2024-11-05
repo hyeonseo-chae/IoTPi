@@ -1,8 +1,13 @@
-<html>
+<!doctype html>
+<html lang="ko">
   <head>
-    <title>Raspberry Pi camera Test</title>
+    <meta charset="utf-8">
+    <title>Raspberry Pi Camera Test</title>
   </head>
   <body>
-    <img src="capture.jpg" />
+    <h1>카메라 촬영하기</h1>
+    <form action="/cgi-bin/capture.cgi" method="post">
+      <button type="submit">촬영 시작</button>
+    </form>
   </body>
 </html>
