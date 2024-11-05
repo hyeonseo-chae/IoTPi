@@ -16,7 +16,7 @@ void setup() {
     pinMode(segments[i], OUTPUT);
   }
   
-  lcd.begin();
+  lcd.init();
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("20195447 CHS"); // 1번째 줄
