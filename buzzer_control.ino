@@ -3,8 +3,8 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // I2C 주소 0x27, 16x2 LCD 설정
 
-const int buzzerPin = 3; // 버저 출력 핀
-const int segments[] = {4, 5, 6, 7, 8, 9, 10}; // 7세그먼트 핀 배열 (a, b, c, d, e, f, g)
+const int buzzerPin = 10; // 버저 출력 핀
+const int segments[] = {2, 3, 4, 5, 6, 7, 8}; // 7세그먼트 핀 배열 (a, b, c, d, e, f, g)
 int receivedNumber = -1;
 
 void setup() {
