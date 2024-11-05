@@ -56,11 +56,15 @@ void displayNumber(int number) {
 }
 
 void playMelody() {
-  // 간단한 멜로디 재생
-  for (int i = 0; i < 3; i++) {
-    digitalWrite(buzzerPin, HIGH);
-    delay(100);
-    digitalWrite(buzzerPin, LOW);
-    delay(100);
-  }
+  tone(buzzerPin, 262); // C4 음 (도) 재생
+  delay(500);           // 0.5초 재생
+  noTone(buzzerPin);    // 소리 끄기
+  delay(100);           // 약간의 지연 후 다음 소리
+  tone(buzzerPin, 330); // E4 음 (미) 재생
+  delay(500);           // 0.5초 재생
+  noTone(buzzerPin);    // 소리 끄기
+  delay(100);
+  tone(buzzerPin, 392); // G4 음 (솔) 재생
+  delay(500);           // 0.5초 재생
+  noTone(buzzerPin);  
 }
