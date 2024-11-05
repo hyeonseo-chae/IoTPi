@@ -1,7 +1,7 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27, 16, 2); // I2C 주소 0x27, 16x2 LCD 설정
+LiquidCrystal_I2C lcd(0x3F, 16, 2); // I2C 주소 0x27, 16x2 LCD 설정
 
 const int buzzerPin = 10; // 버저 출력 핀
 const int segments[] = {2, 3, 4, 5, 6, 7, 8}; // 7세그먼트 핀 배열 (a, b, c, d, e, f, g)
@@ -18,6 +18,8 @@ void setup() {
   
   lcd.begin();
   lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("20195447 CHS"); // 1번째 줄
 }
 
 void loop() {
@@ -29,7 +31,11 @@ void loop() {
       displayNumber(receivedNumber);
     } else if (command.startsWith("TEXT:")) {
       String text = command.substring(5);
+      lcd.setCursor(0, 1); // 2번째 줄에 출력
       lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("20195447 CHS"); // 1번째 줄
+      lcd.setCursor(0, 1);
       lcd.print(text);
     } else if (command == "BUZZER") {
       playMelody();
@@ -49,7 +55,8 @@ void displayNumber(int number) {
     {1, 1, 1, 0, 0, 0, 0}, // 7
     {1, 1, 1, 1, 1, 1, 1}, // 8
     {1, 1, 1, 1, 0, 1, 1}  // 9
-  
+  };
+
   for (int i = 0; i < 7; i++) {
     digitalWrite(segments[i], digits[number][i]);
   }
